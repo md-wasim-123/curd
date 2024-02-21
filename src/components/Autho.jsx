@@ -3,7 +3,7 @@ import { supabase } from '../SupabaseClient'
 import { useNavigate ,Link} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Autho = () => {
+const Autho = ({setToken) => {
     const navigate= useNavigate()
     const [userData, setData] = React.useState({
         name: '',
@@ -25,26 +25,8 @@ const Autho = () => {
                 }
 
             })
-
-            if (error){
-                toast('server error!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                    });
-                } 
-                else{
-                navigate('/home')
-                
-                    }
-
-                 
-            
+            setToken(data)
+            navigate('/home')  
         } catch (error) {
             console.log(error)
         }
