@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HerroSection />} />
         <Route path='/login' element={<Login setToken={setToken} />} />
-        <Route path="/signup" element={<Autho />} />
+        <Route path="/signup" element={<Autho setToken={setToken} />} />
         <Route path="/add" element={<Add/>} />
         <Route path="/home" element={<Home />} />
       </Routes>
